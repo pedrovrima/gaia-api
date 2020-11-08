@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.send("helo");
+  res.send("Welcome to Gaia API");
 });
 app.get("/favicon.ico", function (req, res) {
   res.sendStatus(204);
