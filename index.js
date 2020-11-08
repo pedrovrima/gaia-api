@@ -2,10 +2,13 @@ const express = require("express");
 var bodyParser = require("body-parser");
 var species_controller = require('./controllers/species')
 var autu_controller = require('./controllers/autu')
+var cors = require('cors')
+
 
 // configure the app to use bodyParser()
 console.log("start");
 const app = express();
+app.use(cors())
 app.use(
   bodyParser.urlencoded({
     extended: true,
