@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
 res.send("helo")
-}
+})
 
 // app.post('/create_spp', ( req,res) => {
 //   console.log("start")
