@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-  console.log(JSON.stringify(Models));
+  res.send("Helo!");
 });
 
 app.post('/create_spp', ( req,res) => {
