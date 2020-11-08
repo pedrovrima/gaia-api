@@ -5,7 +5,7 @@ var species_controller = require('./controllers/species')
 var autu_controller = require('./controllers/autu')
 
 // configure the app to use bodyParser()
-
+console.log("start")
 const app = express();
 app.use(bodyParser.urlencoded({
   extended: true
@@ -15,11 +15,12 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-  res.send("Helo!");
-});
+  res.sendFile(path.join(__dirname + '/index.html'));})
+
 
 app.post('/create_spp', ( req,res) => {
-  
+  console.log("start")
+
   species_controller.create_species(req,res);
 });
 
