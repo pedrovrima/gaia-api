@@ -15,8 +15,8 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'));})
-
+res.send("helo")
+}
 
 // app.post('/create_spp', ( req,res) => {
 //   console.log("start")
