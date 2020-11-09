@@ -1,6 +1,7 @@
 const db = require("../app/models");
 
 const create_autu = async (req, res) => {
+  console.log
   const  autu_info = req.body;
   try{
     console.log(autu_info)
