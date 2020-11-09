@@ -13,29 +13,16 @@ app.use(
     extended: true,
   })
 );
-
 app.use(function (req, res, next) {
-  // Website you wish to allow to connect
-  res.setHeader("Access-Control-Allow-Origin", "*");
-
-  // Request methods you wish to allow
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-
-  // Request headers you wish to allow
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
-  );
-
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
-  res.setHeader("Access-Control-Allow-Credentials", true);
-
-  // Pass to next layer of middleware
-  next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+  if ('OPTIONS' === req.method) {
+      res.status(204).send();
+  }
+  else {
+      next();
+  }
 });
 app.use(bodyParser.json());
 
@@ -55,6 +42,7 @@ app.post("/create_spp", (req, res) => {
 });
 
 app.post("/create_autu", (req, res) => {
+  console.log(res.header,)
   autu_controller.create_autu(req, res);
 });
 
